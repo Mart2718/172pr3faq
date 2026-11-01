@@ -391,6 +391,151 @@
 
   table { font-size: 0.9rem; }
   th { text-align: center; }
+
+  /* ===== START HERE: GUIDED LEARNING ===== */
+  .tab-btn.start-tab { color: #b04c19; }
+  .gl-hero h2 { font-family: 'Merriweather', serif; font-size: 1.3rem; color: var(--teal-dark); margin-bottom: 0.4rem; }
+  .gl-scope { font-size: 0.85rem; color: var(--text-secondary); background: var(--gold-light); border-left: 3px solid var(--gold); border-radius: 6px; padding: 0.5rem 0.8rem; margin-bottom: 1.25rem; max-width: 680px; }
+  .loop-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0 0 1.25rem; list-style: none; counter-reset: loop; }
+  .loop-strip li { counter-increment: loop; background: var(--bg-card); border: 1px solid var(--border-light); border-top: 3px solid var(--teal); border-radius: 6px; padding: 0.6rem 0.7rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; }
+  .loop-strip li:nth-child(2) { border-top-color: var(--orange); }
+  .loop-strip li:nth-child(4) { border-top-color: var(--gold); }
+  .loop-strip li strong { display: block; color: var(--text-primary); font-size: 0.88rem; }
+  .loop-strip li strong::before { content: counter(loop) ". "; color: var(--teal); }
+  .gl-progress { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--text-secondary); }
+  .gl-progress-bar { flex: 1; height: 8px; background: var(--border-light); border-radius: 99px; overflow: hidden; }
+  .gl-progress-fill { height: 100%; width: 0; background: var(--teal); transition: width 0.3s ease; }
+  .gl-reset { background: none; border: none; color: var(--text-secondary); font-family: 'Inter', sans-serif; font-size: 0.8rem; text-decoration: underline; cursor: pointer; }
+  .stage-heading { font-size: 1rem; font-weight: 700; color: var(--teal-dark); margin: 1.5rem 0 0.2rem; }
+  .stage-desc { font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .trail { list-style: none; }
+  .stop { position: relative; padding-left: 3rem; padding-bottom: 0.9rem; }
+  .stop::before { content: ''; position: absolute; left: 17px; top: 36px; bottom: 0; width: 2px; background: var(--border); }
+  .stop:last-child::before { display: none; }
+  .stop.done::before { background: var(--teal); }
+  .node { position: absolute; left: 0; top: 0.55rem; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; color: var(--text-secondary); }
+  .stop.current .node { border-color: var(--orange); color: #b04c19; box-shadow: 0 0 0 4px var(--orange-light); }
+  .stop.done .node { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .stop-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .stop-trigger { width: 100%; background: none; border: none; text-align: left; padding: 0.9rem 1.1rem; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; font-family: 'Inter', sans-serif; color: inherit; }
+  .stop-trigger:hover { background: var(--teal-light); }
+  .stop-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); display: block; }
+  .stop-meta { font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 0.1rem; }
+  .stop-trigger .chevron { width: 20px; height: 20px; flex-shrink: 0; color: var(--teal); transition: transform 0.2s; margin-top: 0.2rem; }
+  .stop-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .stop-body { padding: 0 1.1rem 1.1rem; }
+  .stop-body[hidden] { display: none; }
+  .gl-target { font-size: 0.88rem; color: var(--text-secondary); background: var(--teal-light); border-radius: 6px; padding: 0.6rem 0.8rem; margin-bottom: 1rem; }
+  .gl-target strong { color: var(--teal-dark); }
+  .gl-step { border-left: 3px solid var(--teal); padding: 0.1rem 0 0.2rem 0.9rem; margin-bottom: 1.1rem; }
+  .gl-step.s2 { border-left-color: var(--orange); }
+  .gl-step.s4 { border-left-color: var(--gold); }
+  .gl-step h4 { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem; }
+  .gl-step p { font-size: 0.92rem; color: var(--text-secondary); }
+  .gl-step .problem { color: var(--text-primary); margin: 0.3rem 0 0.5rem; }
+  .gl-step .gl-hint { font-size: 0.82rem; font-style: italic; }
+  details.gl-reveal { margin-top: 0.4rem; }
+  details.gl-reveal > summary { cursor: pointer; font-size: 0.85rem; font-weight: 600; color: #b04c19; list-style: none; display: inline-block; padding: 0.3rem 0; }
+  details.gl-reveal > summary::-webkit-details-marker { display: none; }
+  details.gl-reveal > summary::before { content: '+ '; }
+  details.gl-reveal[open] > summary::before { content: '\2212  '; }
+  details.gl-reveal > summary:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+  .gl-answer { background: var(--gold-light); border-radius: 6px; padding: 0.6rem 0.8rem; margin-top: 0.3rem; font-size: 0.9rem; color: var(--text-primary); }
+  .gl-prompt-preview { white-space: pre-wrap; font-size: 0.82rem; background: var(--bg-page); border: 1px solid var(--border-light); border-radius: 6px; padding: 0.75rem; margin-top: 0.4rem; color: var(--text-secondary); max-height: 260px; overflow: auto; }
+  .gl-done { display: inline-flex; margin-top: 0.6rem; background: var(--teal); color: #fff; border: none; padding: 0.55rem 1rem; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+  .gl-done[aria-pressed="true"] { background: #15803d; }
+  .gl-related { margin-top: 0.6rem; font-size: 0.82rem; color: var(--text-secondary); display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+  .gl-link { background: var(--bg-page); border: 1px solid var(--border); border-radius: 99px; padding: 0.15rem 0.7rem; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--teal-dark); cursor: pointer; }
+  .gl-link:hover { border-color: var(--teal); }
+  .gl-reflect-label { display: block; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.35rem; }
+  .gl-step textarea { width: 100%; min-height: 64px; border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem; font-family: 'Inter', sans-serif; font-size: 0.9rem; background: var(--bg-page); color: var(--text-primary); resize: vertical; }
+  .gl-step textarea:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+  .gl-step .graph-wrap { overflow-x: auto; }
+  .g-grid { stroke: var(--border-light); stroke-width: 1; }
+  .g-axis { stroke: var(--text-secondary); stroke-width: 1.5; }
+  .g-label { fill: var(--text-secondary); font: 10px 'Inter', sans-serif; stroke: var(--bg-card); stroke-width: 3px; paint-order: stroke; }
+  .g-line { fill: none; stroke: #1d4ed8; stroke-width: 3; stroke-linejoin: round; }
+  .g-dot, .g-name { fill: #1d4ed8; }
+  .g-name { font: 600 12px 'Inter', sans-serif; }
+  @media (prefers-reduced-motion: reduce) { .gl-progress-fill, .stop-trigger .chevron { transition: none; } }
+  @media (max-width: 640px) {
+    .loop-strip { grid-template-columns: repeat(2, 1fr); }
+    .stop { padding-left: 2.6rem; }
+    .node { width: 30px; height: 30px; font-size: 0.8rem; }
+    .stop::before { left: 14px; top: 32px; }
+  }
+  .gl-switch { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+  .gl-switch-btn { background: var(--bg-card); border: 2px solid var(--border); border-radius: 99px; padding: 0.45rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; }
+  .gl-switch-btn:hover { border-color: var(--teal); color: var(--teal-dark); }
+  .gl-switch-btn[aria-pressed="true"] { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
+  .gl-intro { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; max-width: 680px; }
+  .gl-step .problem { font-size: 0.92rem; }
+  .g-open { fill: var(--bg-card); stroke: #1d4ed8; stroke-width: 2.5; }
+  .graph-row { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin: 0.6rem 0; }
+  .graph-fig { margin: 0; text-align: center; }
+  .graph-fig figcaption { font-weight: 700; font-size: 0.85rem; color: var(--text-primary); }
+  .g-oval { fill: var(--teal-light); stroke: var(--teal); stroke-width: 1.5; }
+  .g-map { font: 600 15px 'Inter', sans-serif; fill: var(--text-primary); }
+  .g-arrow { stroke: #1d4ed8; stroke-width: 2; }
+  .g-arrowhead { fill: #1d4ed8; }
+  .table-wrap { overflow-x: auto; }
+  table.lookup { border-collapse: collapse; margin: 0.5rem 0; }
+  table.lookup th, table.lookup td { border: 1px solid var(--border); padding: 4px 12px; text-align: center; color: var(--text-primary); }
+  table.lookup th { background: var(--teal-light); }
+  .g-sym { stroke: #b04c19; stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .g-ghost { fill: none; stroke: #9ca3af; stroke-width: 2; stroke-dasharray: 5 4; }
+  .g-init { stroke: #4a4a5a; stroke-width: 2.5; }
+  .g-ray { stroke: #1d4ed8; stroke-width: 3; }
+  .g-arc { fill: none; stroke: #b04c19; stroke-width: 2; }
+  .g-anglelabel { fill: #b04c19; font: 700 13px 'Inter', sans-serif; }
+  circle.g-ghost { fill: none; }
+  .g-archead { fill: #b04c19; }
+  .g-tri { fill: var(--teal-light); stroke: #1a6b6b; stroke-width: 2.5; }
+  .g-rightbox { fill: none; stroke: #1a6b6b; stroke-width: 1.5; }
+  .table-graph { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 0.6rem 0; }
+  .table-graph table.lookup { margin: 0; }
+  .table-graph-plot { flex: 1 1 300px; max-width: 520px; overflow-x: auto; }
+  .g-ann { stroke: #b04c19; stroke-width: 2; }
+  .g-annhead { fill: #b04c19; }
+  .g-anntext { fill: #b04c19; font: 700 12px 'Inter', sans-serif; }
+  .gl-explain { background: var(--bg-card); border: 1px solid var(--border-light); border-left: 4px solid var(--orange); border-radius: 6px; padding: 0.75rem 0.9rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-secondary); }
+  .gl-explain h4 { font-size: 0.92rem; color: var(--text-primary); margin-bottom: 0.3rem; }
+  .gl-explain p + p { margin-top: 0.5rem; }
+  .gl-explain a { color: #b04c19; font-weight: 600; }
+  a.gl-link { text-decoration: none; display: inline-block; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+  .g-asym { stroke: #c0392b; stroke-width: 2; stroke-dasharray: 6 4; }
+  .g-asymtext { fill: #c0392b; font: 700 11px 'Inter', sans-serif; stroke: var(--bg-card); stroke-width: 3px; paint-order: stroke; }
+  .lg-eq { font: 600 26px 'Merriweather', Georgia, serif; fill: var(--text-primary); }
+  .lg-b { fill: #1a6b6b; font-weight: 700; }
+  .lg-c { fill: #b04c19; font-weight: 700; }
+  .lg-a { fill: #1d4ed8; font-weight: 700; }
+  .lg-key text { fill: var(--text-secondary); font-family: 'Inter', sans-serif; }
+  .g-domain { fill: #15803d; opacity: 0.25; }
+  .g-domaintext { fill: #15803d; font: 700 11px 'Inter', sans-serif; }
+  .pr-badge { display: inline-block; font: 700 0.75rem 'Inter', sans-serif; padding: 0.1rem 0.5rem; border-radius: 99px; color: #fff; margin-right: 0.25rem; }
+  .pr-prod { background: #1a6b6b; }
+  .pr-quot { background: #b04c19; }
+  .pr-pow { background: #1d4ed8; }
+  .pr-start { background: #6b7280; }
+  table.steps td { text-align: left; }
+  .pr-reject { background: #c0392b; }
+  .tri-v { font: 700 14px 'Inter', sans-serif; fill: var(--text-primary); }
+  .tri-given { font: 700 13px 'Inter', sans-serif; fill: #1a6b6b; }
+  .tri-find { font: 700 13px 'Inter', sans-serif; fill: #b04c19; }
+  .tri-val { font: 700 13px 'Inter', sans-serif; fill: #1d4ed8; }
+  .pr-badge { white-space: nowrap; }
+  .g-solid { fill: #e5e7eb; stroke: #6b7280; stroke-width: 1.5; }
+  .g-water { fill: #bfdbfe; opacity: 0.6; }
+  .g-sight { stroke: #1d4ed8; stroke-width: 2.5; }
+  .g-horiz { stroke: #b04c19; stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .g-halo { stroke: var(--bg-card); stroke-width: 4px; paint-order: stroke; }
+  .gl-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: -0.75rem 0 1rem; padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); font-size: 0.88rem; }
+  .gl-confirm[hidden] { display: none; }
+  .gl-confirm button { font: 600 0.85rem 'Inter', sans-serif; padding: 0.35rem 0.8rem; border-radius: 6px; cursor: pointer; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); }
+  .gl-confirm .gl-confirm-yes { background: #b04c19; border-color: #b04c19; color: #fff; }
+  .gl-confirm button:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+  .gl-privacy { font-size: 0.8rem; color: var(--text-secondary); margin: -0.9rem 0 1.4rem; }
 </style>
 </head>
 <body>
@@ -408,7 +553,8 @@
 </header>
 
 <nav class="tab-nav" role="tablist" aria-label="Resource sections">
-  <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-faq" id="tab-faq">FAQs</button>
+  <button class="tab-btn start-tab" role="tab" aria-selected="true" aria-controls="panel-path" id="tab-path">Start Here: Guided Learning</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-faq" id="tab-faq">FAQs</button>
   <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-prompts" id="tab-prompts">AI Prompts</button>
   <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-apps" id="tab-apps">Apps</button>
   <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-videos" id="tab-videos">Videos</button>
@@ -416,7 +562,11 @@
 
 <main id="main" class="main-content">
 
-  <div class="tab-panel active" id="panel-faq" role="tabpanel" aria-labelledby="tab-faq">
+  <div class="tab-panel active" id="panel-path" role="tabpanel" aria-labelledby="tab-path">
+    <div id="path-root"></div>
+  </div>
+
+  <div class="tab-panel" id="panel-faq" role="tabpanel" aria-labelledby="tab-faq">
     <p class="section-intro">Common questions about this section, organized by type. Click any question to reveal the answer.</p>
 
     <section class="faq-category" aria-label="Conceptual clarity questions">
@@ -694,6 +844,271 @@ function renderPrompts() {
   });
 }
 
+// ===== START HERE: GUIDED LEARNING =====
+// Content lives in the "paths" array of the data JSON (one path per section).
+// A combined page (e.g. FN2 + FN3) gets a section switcher at the top of the tab.
+// If a page has no paths yet, the tab hides itself and the page opens on FAQs.
+function glMath(el) {
+  if (typeof renderMathInElement === 'function') {
+    renderMathInElement(el, {
+      delimiters: [
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+      ]
+    });
+  }
+}
+
+function glHideEmptyTabs() {
+  // A page can launch with only Guided Learning; tabs with no content yet are hidden.
+  // Full FAQ pages keep every tab (an empty Apps tab shows its "coming soon" message).
+  if ((DATA.faqs || []).length > 0) return;
+  const has = {
+    faq: (DATA.faqs || []).length > 0,
+    prompts: DATA.prompts ? ((DATA.prompts.guided || []).length + (DATA.prompts.open || []).length) > 0 : false,
+    apps: (DATA.apps || []).length > 0,
+    videos: (DATA.videos || []).length > 0
+  };
+  Object.keys(has).forEach(k => {
+    if (!has[k]) {
+      const t = document.getElementById('tab-' + k), p = document.getElementById('panel-' + k);
+      if (t) t.remove();
+      if (p) p.remove();
+    }
+  });
+}
+
+function renderPath() {
+  const hasPaths = (DATA.paths || (DATA.path ? [DATA.path] : [])).length > 0;
+  if (hasPaths) glHideEmptyTabs();
+  const PATHS = DATA.paths || (DATA.path ? [DATA.path] : []);
+  const tab = document.getElementById('tab-path');
+  const panel = document.getElementById('panel-path');
+  if (!PATHS.length) {
+    tab.remove();
+    panel.remove();
+    document.getElementById('tab-faq').setAttribute('aria-selected', 'true');
+    document.getElementById('panel-faq').classList.add('active');
+    return;
+  }
+  const root = panel.querySelector('#path-root');
+  const PICK_KEY = 'guided-learning-pick-' + DATA.section;
+
+  root.innerHTML = `
+    <div class="gl-hero">
+      <h2>Missed class, or not sure where to start?</h2>
+      <p class="section-intro">${PATHS.length > 1 ? 'Pick your section, then work' : 'Work'} through the stops from top to bottom. Each stop teaches one skill and takes about 10–15 minutes.</p>
+    </div>
+    ${PATHS.length > 1 ? `<div class="gl-switch" role="group" aria-label="Choose a section">${PATHS.map(p => `<button type="button" class="gl-switch-btn" data-pid="${p.id}" aria-pressed="false">${p.label}</button>`).join('')}</div>` : ''}
+    <ol class="loop-strip" aria-label="How each stop works">
+      <li><strong>Try it</strong>One problem on your own, no AI.</li>
+      <li><strong>Work it through</strong>Copy the tutor prompt into an AI tool.</li>
+      <li><strong>Try again</strong>A new problem, on your own.</li>
+      <li><strong>Name it</strong>Write the key idea in one sentence.</li>
+    </ol>
+    ${PATHS.map(p => `<section class="gl-path" id="path-${p.id}" aria-label="${p.label}" hidden></section>`).join('')}`;
+
+  PATHS.forEach(p => buildOnePath(p, root.querySelector('#path-' + p.id)));
+
+  function show(pid) {
+    PATHS.forEach(p => { root.querySelector('#path-' + p.id).hidden = p.id !== pid; });
+    root.querySelectorAll('.gl-switch-btn').forEach(b => b.setAttribute('aria-pressed', b.dataset.pid === pid));
+    try { localStorage.setItem(PICK_KEY, pid); } catch (e) {}
+    const open = root.querySelector('#path-' + pid + ' .stop-body:not([hidden])');
+    if (open) glMath(open);
+  }
+  root.querySelectorAll('.gl-switch-btn').forEach(b => b.addEventListener('click', () => show(b.dataset.pid)));
+  let start = PATHS[0].id;
+  try { const saved = localStorage.getItem(PICK_KEY); if (saved && PATHS.some(p => p.id === saved)) start = saved; } catch (e) {}
+  show(start);
+}
+
+function buildOnePath(P, host) {
+  const pid = P.id;
+  const ALL = P.stages.flatMap(g => g.stops);
+  const KEY = 'guided-learning-' + DATA.section + '-' + pid;
+  let state = { done: [], notes: {} };
+  try { const raw = localStorage.getItem(KEY); if (raw) state = Object.assign(state, JSON.parse(raw)); } catch (e) {}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+  const $ = id => document.getElementById(pid + '-' + id);
+
+  const withGraphs = html => (html || '').replace(/\[\[graph:([A-Za-z0-9_-]+)\]\]/g, (m, k) => (P.graphs && P.graphs[k]) || '');
+  const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const strip = t => {
+    let s = t.replace(/<[^>]+>/g, '').replace(/\\\(|\\\)/g, '');
+    for (let i = 0; i < 3; i++) s = s.replace(/\\[dt]?frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)');
+    s = s.replace(/\\sqrt\{([^{}]*)\}/g, 'sqrt($1)').replace(/\\(left|right|big|Big)/g, '')
+         .replace(/\\le\b/g, '<=').replace(/\\ge\b/g, '>=').replace(/\\pm/g, '+/-').replace(/\\cup/g, 'U').replace(/\\infty/g, 'infinity')
+         .replace(/([A-Za-z0-9])\\(sin|cos|tan|sec|csc|cot)\b/g, '$1 $2').replace(/([A-Za-z0-9}])\\(theta|alpha|beta)\b/g, '$1 $2').replace(/\\(sin|cos|tan|sec|csc|cot|pi|theta|alpha)\b/g, '$1').replace(/\^\\circ/g, ' degrees').replace(/\\[,;: ]/g, ' ').replace(/[{}]/g, '');
+    return s.replace(/\(([A-Za-z0-9]+)\)\/\(([A-Za-z0-9]+)\)/g, '$1/$2');
+  };
+  const reveal = (label, html) => `<details class="gl-reveal"><summary>${label}</summary><div class="gl-answer">${html}</div></details>`;
+
+  function buildPrompt(s) {
+    const graphLine = s.graphNote ? `\n   (I can see a graph that you can't. ${s.graphNote})` : '';
+    const noteLine = s.note ? `\n   (${s.note})` : '';
+    return `I'm a Math 172 (Precalculus) student working on Section ${P.sectionLabel}. Please be my tutor for ONE skill only:
+${strip(s.target)}
+
+How to tutor me:
+1. First, ask me to show how I tried this problem: ${s.coldPlain}${graphLine}${noteLine}
+2. Guide me one step at a time with short questions. Don't give me the final answer until I've tried each step.
+3. If I make a mistake, help me find it before you explain it.
+4. Use plain language and keep each reply short.
+5. When I get it right, ask me to explain in my own words why it works.
+6. Then give me ONE similar problem and check my work.
+7. When I solve that one correctly, tell me I'm ready to go back to my course page for the next step.
+
+My instructor's worked solution (it is correct, so use it to check your own math): ${s.solution}
+A common mistake to watch for: ${s.mistake}`;
+  }
+
+  let n = 0;
+  host.innerHTML = `
+    <p class="gl-intro">${P.intro}</p>
+    <div class="gl-progress">
+      <div class="gl-progress-bar" role="progressbar" aria-label="${P.label} progress" aria-valuemin="0" aria-valuemax="${ALL.length}" aria-valuenow="0" id="${pid}-bar"><div class="gl-progress-fill" id="${pid}-fill"></div></div>
+      <span id="${pid}-text" aria-live="polite"></span>
+      <button class="gl-reset" id="${pid}-reset" type="button" aria-controls="${pid}-confirm" aria-expanded="false">Start over</button>
+    </div>
+    <div class="gl-confirm" id="${pid}-confirm" role="group" aria-label="Confirm start over" hidden>
+      <span>Clear your checkmarks and notes for ${P.label}?</span>
+      <button type="button" class="gl-confirm-yes" id="${pid}-yes">Yes, clear them</button>
+      <button type="button" class="gl-confirm-no" id="${pid}-no">Cancel</button>
+    </div>
+    <p class="gl-privacy">Your notes and checkmarks are saved only in this browser on this device. They are not sent to your instructor, and your browser may clear them. On a shared computer, use “Start over” to clear them.</p>
+    ${P.stages.map(g => `
+      <h3 class="stage-heading">${g.stage}</h3>
+      <p class="stage-desc">${g.desc}</p>
+      <ol class="trail">${g.stops.map(s => { n++; return `
+        <li class="stop" id="${pid}-stop-${s.id}" data-id="${s.id}">
+          <span class="node" aria-hidden="true">${n}</span>
+          <div class="stop-card">
+            <button class="stop-trigger" aria-expanded="false" aria-controls="${pid}-body-${s.id}" id="${pid}-trig-${s.id}">
+              <span><span class="stop-title">${s.title}</span><span class="stop-meta" id="${pid}-meta-${s.id}"></span></span>${chevronSVG}
+            </button>
+            <div class="stop-body" id="${pid}-body-${s.id}" role="region" aria-labelledby="${pid}-trig-${s.id}" hidden>
+              <p class="gl-target"><strong>You'll be able to:</strong> ${s.target}</p>
+              ${s.explain ? `<div class="gl-explain">${withGraphs(s.explain)}</div>` : ''}
+              <div class="gl-step"><h4>1. Try it on your own</h4>
+                <div class="problem">${withGraphs(s.cold)}</div>
+                ${reveal('Check my answer', withGraphs(s.coldA))}
+                <p class="gl-hint">Got it right and felt sure? Skip to step 3.</p>
+              </div>
+              <div class="gl-step s2"><h4>2. Work it through with an AI tutor</h4>
+                <p>Copy this prompt into ChatGPT, Claude, or Gemini. Keep going until the tutor says you're ready.</p>
+                <p style="margin-top:0.5rem;"><button class="copy-btn gl-copy" data-id="${s.id}" type="button">Copy tutor prompt</button></p>
+                <details class="gl-reveal"><summary>See what the prompt says</summary><div class="gl-prompt-preview">${esc(buildPrompt(s))}</div></details>
+                ${s.related && s.related.filter(r => r.url || document.getElementById(r.tab)).length ? `<div class="gl-related"><span>Want another way in?</span>${s.related.filter(r => r.url || document.getElementById(r.tab)).map(r => r.url ? `<a class="gl-link" href="${r.url}" target="_blank" rel="noopener noreferrer">${r.label}<span class="sr-only"> (opens in a new tab)</span></a>` : `<button class="gl-link" type="button" data-tab="${r.tab}">${r.label}</button>`).join('')}</div>` : ''}
+              </div>
+              <div class="gl-step"><h4>3. Try again on your own</h4>
+                <div class="problem">${withGraphs(s.again)}</div>
+                ${reveal('Check my answer', withGraphs(s.againA))}
+                ${s.stretch ? `<div class="problem" style="margin-top:0.6rem;"><em>Stretch (optional):</em> ${withGraphs(s.stretch)}</div>${reveal('Check my answer', withGraphs(s.stretchA))}` : ''}
+              </div>
+              <div class="gl-step s4"><h4>4. Name it</h4>
+                <label class="gl-reflect-label" for="${pid}-note-${s.id}">${s.reflect}</label>
+                <textarea id="${pid}-note-${s.id}" data-id="${s.id}" placeholder="One sentence, in your own words"></textarea>
+                <button class="gl-done" type="button" data-id="${s.id}" aria-pressed="false">Mark this stop complete</button>
+              </div>
+            </div>
+          </div>
+        </li>`; }).join('')}</ol>`).join('')}`;
+
+  function setOpen(id, open) {
+    const trig = $('trig-' + id);
+    const body = $('body-' + id);
+    trig.setAttribute('aria-expanded', open);
+    body.hidden = !open;
+    if (open) glMath(body);
+  }
+
+  function refresh(first) {
+    const current = ALL.find(s => !state.done.includes(s.id));
+    ALL.forEach((s, i) => {
+      const li = $('stop-' + s.id);
+      const done = state.done.includes(s.id);
+      li.classList.toggle('done', done);
+      li.classList.toggle('current', !!current && current.id === s.id);
+      li.querySelector('.node').textContent = done ? '\u2713' : (i + 1);
+      $('meta-' + s.id).textContent = `Stop ${i + 1} of ${ALL.length}` + (done ? ', complete' : (current && current.id === s.id ? ', you are here' : ''));
+      const b = li.querySelector('.gl-done');
+      b.setAttribute('aria-pressed', done);
+      b.textContent = done ? 'Completed (select to undo)' : 'Mark this stop complete';
+    });
+    const c = state.done.length;
+    $('fill').style.width = (100 * c / ALL.length) + '%';
+    $('bar').setAttribute('aria-valuenow', c);
+    $('text').textContent = c === ALL.length ? `All ${ALL.length} stops complete. Nice work.` : `${c} of ${ALL.length} stops complete`;
+    if (first && current) setOpen(current.id, true);
+  }
+
+  host.querySelectorAll('.stop-trigger').forEach(t => t.addEventListener('click', () => {
+    setOpen(t.closest('.stop').dataset.id, t.getAttribute('aria-expanded') !== 'true');
+  }));
+
+  host.querySelectorAll('.gl-copy').forEach(b => b.addEventListener('click', async () => {
+    const text = buildPrompt(ALL.find(x => x.id === b.dataset.id));
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e2) {}
+      document.body.removeChild(ta);
+    }
+    b.textContent = ok ? 'Copied. Paste it into your AI tool' : 'Copy failed. Open "See what the prompt says" and copy it there';
+    if (ok) b.classList.add('copied');
+    setTimeout(() => { b.textContent = 'Copy tutor prompt'; b.classList.remove('copied'); }, 2500);
+  }));
+
+  host.querySelectorAll('button.gl-link').forEach(b => b.addEventListener('click', () => {
+    const t = document.getElementById(b.dataset.tab);
+    if (t) { t.click(); t.focus(); }
+  }));
+
+  host.querySelectorAll('textarea[data-id]').forEach(ta => {
+    ta.value = state.notes[ta.dataset.id] || '';
+    ta.addEventListener('input', () => { state.notes[ta.dataset.id] = ta.value; save(); });
+  });
+
+  host.querySelectorAll('.gl-done').forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.id;
+    const i = state.done.indexOf(id);
+    if (i === -1) state.done.push(id); else state.done.splice(i, 1);
+    save();
+    refresh(false);
+    if (state.done.includes(id)) {
+      setOpen(id, false);
+      const next = ALL.find(s => !state.done.includes(s.id));
+      if (next) {
+        setOpen(next.id, true);
+        const t = $('trig-' + next.id);
+        t.focus();
+        t.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+    }
+  }));
+
+  // Inline confirmation (browser confirm() pop-ups can be blocked inside Canvas/LibreTexts frames).
+  const resetBtn = $('reset'), box = $('confirm');
+  const closeBox = () => { box.hidden = true; resetBtn.setAttribute('aria-expanded', 'false'); resetBtn.focus(); };
+  resetBtn.addEventListener('click', () => { box.hidden = false; resetBtn.setAttribute('aria-expanded', 'true'); $('yes').focus(); });
+  $('no').addEventListener('click', closeBox);
+  box.addEventListener('keydown', e => { if (e.key === 'Escape') closeBox(); });
+  $('yes').addEventListener('click', () => {
+    state = { done: [], notes: {} };
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    host.querySelectorAll('textarea[data-id]').forEach(ta => { ta.value = ''; });
+    ALL.forEach(s => setOpen(s.id, false));
+    refresh(true);
+    closeBox();
+    $('text').textContent = 'Cleared. ' + $('text').textContent;
+  });
+
+  refresh(true);
+}
+
 // ===== TAB SWITCHING =====
 function initTabs() {
   const tabs = document.querySelectorAll('.tab-btn');
@@ -748,6 +1163,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderApps();
   renderVideos();
   renderPrompts();
+  renderPath();
   initTabs();
 
   if (typeof renderMathInElement === 'function') {
