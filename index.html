@@ -732,10 +732,11 @@ function renderVideos() {
   }
 
   const categoryLabels = {
-    'end-behavior': { title: 'End Behavior', desc: 'Start here — degree, leading coefficient, and predicting how the ends of the graph behave' },
+    'full-problem': { title: 'The Full PR3 Problem', desc: 'Start here — zeros, intercepts, end behavior, and the graph together' },
+    'end-behavior': { title: 'End Behavior', desc: 'Degree, leading coefficient, and predicting how the ends of the graph behave' },
     'zeros-and-multiplicity': { title: 'Zeros & Multiplicity', desc: 'Reading zeros and their multiplicities from an equation or a graph' }
   };
-  const categoryOrder = ['end-behavior', 'zeros-and-multiplicity'];
+  const categoryOrder = ['full-problem', 'end-behavior', 'zeros-and-multiplicity'];
 
   categoryOrder.forEach(cat => {
     const vids = DATA.videos.filter(v => v.category === cat);

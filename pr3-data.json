@@ -96,6 +96,18 @@
   ],
   "videos": [
     {
+      "id": "vid-4",
+      "title": "Find the Correct Graph for a Polynomial Function Using Intercepts, Zeros, and End Behavior: Factored",
+      "url": "https://www.youtube.com/watch?v=rljZ9rEgUaA",
+      "description": "Putting the pieces together: using a factored polynomial's zeros, intercepts, and end behavior to decide what its graph looks like, the same reasoning as the sketch in the PR3 CheckIt exercise.",
+      "category": "full-problem",
+      "relatedFaqs": [
+        "faq-7",
+        "faq-8",
+        "faq-10"
+      ]
+    },
+    {
       "id": "vid-1",
       "title": "Degree, Leading Term, and Leading Coefficient of a Polynomial Function",
       "url": "https://youtu.be/F_G_w82s0QA",
